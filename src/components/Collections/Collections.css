@@ -1,0 +1,12 @@
+.slider {
+    display: inline-flex;
+    white-space: nowrap;
+    transition: all 0.5s ease-in-out 0s;
+    min-width: 100%;
+    gap: 16px;
+    transform: translateX(0px);
+}
+
+.carousel-wrapper {
+    width: 100%;
+}
