@@ -1,8 +1,8 @@
 import { Formik } from 'formik';
 import { MdOutlineMailLock, MdOutlineArrowBackIos } from "react-icons/md";
 import { RiLockPasswordLine, RiUserLine } from "react-icons/ri";
-
-import { back } from '../../../redux/formSlice';
+import { back } from 'src/redux/formSlice';
+import { useSignUpMutation } from 'src/services/form.service';
 import { formSignUpValidation } from '../FormValidation';
 import FormInput from './FormInput';
 import FormPolicy from './FormPolicy';
@@ -26,6 +26,8 @@ function FormSignUp({ dispatch }: Props): JSX.Element {
         confirmPassword: ""
     };
 
+    const [signUp, signUpResults] = useSignUpMutation();
+
     return (
         <div className="inline-block w-[500px] px-[45px] pt-[40px] pb-[24px]">
             {/* FORM SIGN UP HEADING */}
@@ -42,50 +44,51 @@ function FormSignUp({ dispatch }: Props): JSX.Element {
                 validationSchema={formSignUpValidation}
                 onSubmit={(values, actions) => {
                     console.log({ values, actions });
+                    signUp(values);
                 }}
             >
-                {({ values, errors, handleChange, handleSubmit }) => (
+                {({ values, errors, touched, handleChange, handleSubmit }) => (
                     <form onSubmit={handleSubmit}>
                         <FormInput
                             type="text"
-                            placehoder="Your name"
+                            placeholder="Your name"
                             name="username"
-                            message={errors.username}
-                            error={errors.username}
                             value={values.username}
                             onChange={handleChange}
+                            message={errors.username}
+                            touched={touched.username}
                         >
                             <RiUserLine className="text-2xl text-tx-3" />
                         </FormInput>
                         <FormInput
-                            placehoder="E-mail"
                             name="email"
-                            message={errors.email}
-                            error={errors.email}
+                            placeholder="E-mail"
                             value={values.email}
                             onChange={handleChange}
+                            message={errors.email}
+                            touched={touched.email}
                         >
                             <MdOutlineMailLock className="text-2xl text-tx-3" />
                         </FormInput>
                         <FormInput
                             type="password"
-                            placehoder="Password"
                             name="password"
-                            message={errors.password}
-                            error={errors.password}
+                            placeholder="Password"
                             value={values.password}
                             onChange={handleChange}
+                            message={errors.password}
+                            touched={touched.password}
                         >
                             <RiLockPasswordLine className="text-2xl text-tx-3" />
                         </FormInput>
                         <FormInput
                             type="password"
-                            placehoder="Confirm Password"
                             name="confirmPassword"
-                            message={errors.confirmPassword}
-                            error={errors.confirmPassword}
+                            placeholder="Confirm Password"
                             value={values.confirmPassword}
                             onChange={handleChange}
+                            message={errors.confirmPassword}
+                            touched={touched.confirmPassword}
                         >
                             <RiLockPasswordLine className="text-2xl text-tx-3" />
                         </FormInput>

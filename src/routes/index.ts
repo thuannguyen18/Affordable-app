@@ -1,6 +1,6 @@
-import Home from "../pages/HomePage/Home";
-import Checkout from "../pages/CheckoutPage/Checkout";
-import Search from "../pages/SearchPage/Search";
+import Home from "src/pages/HomePage/Home";
+import Checkout from "src/pages/CheckoutPage/Checkout";
+import Search from "src/pages/SearchPage/Search";
 
 interface Routes {
     path: string;

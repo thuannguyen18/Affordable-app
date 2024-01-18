@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { GrLocation } from "react-icons/gr";
-import logo from "../../assets/images/logo.png";
+import logo from "src/assets/images/logo.png";
+import Container from "../container";
 import HeaderSearchBar from "./HeaderSearchBar";
 import HeaderUserShortcut from "./HeaderUserShortcut";
 import HeaderMenuMobile from "./HeaderMenuMobile";
@@ -12,7 +13,7 @@ function Header(): JSX.Element {
         <header className=" bg-white">
             {/* TOP HEADER  */}
             <div className="bg-primary">
-                <div className="md:px-3 container mx-auto px-4 py-3 flex justify-between items-center">
+                <Container properties={["flex", "justify-between", "items-center", "md:p-3"]}>
                     {/* HEADER ICON MENU ON MOBILE */}
                     <HeaderMenuMobile />
 
@@ -26,11 +27,11 @@ function Header(): JSX.Element {
 
                     {/* HEADER USER SHORTCUT */}
                     <HeaderUserShortcut />
-                </div>
+                </Container>
             </div>
 
             {/*  BOTTOM HEADER ON PC */}
-            <div className="md:flex md:items-center md:justify-between md:px-3 px-4 container mx-auto h-w-11 py-3 hidden">
+            <Container properties={["bg-primary", "md:flex", "md:items-center", "md:justify-between", "md:p-3", "md:bg-white"]}>
                 {/* HEADER QUICK LINK */}
                 <HeaderQuickLinks />
 
@@ -40,7 +41,7 @@ function Header(): JSX.Element {
                     <span className="text-gray text-sm ml-1 mr-2">Deliver to:</span>
                     <span className="text-sm underline">720/6 Pastuer, P.14, Q.TB, TP.HCM</span>
                 </div>
-            </div>
+            </Container>
         </header>
     );
 }

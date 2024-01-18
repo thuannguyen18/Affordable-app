@@ -1,0 +1,78 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Microsoft Surface Laptop 4 15",
+      "price": "699.99",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Dove Body Wash",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 3,
+      "name": "laptop dell",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 4,
+      "name": "TV Samsung",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 5,
+      "name": "iphone 13",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 6,
+      "name": "tai nghe bluetooth",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 7,
+      "name": "ban phim co",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 8,
+      "name": "kitchen knife",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 9,
+      "name": "ipad mini",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 10,
+      "name": "shoes",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 11,
+      "name": "shoes",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    },
+    {
+      "id": 12,
+      "name": "shoes",
+      "price": "18.72",
+      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+    }
+  ],
+  "login": [],
+  "sign-up": []
+}

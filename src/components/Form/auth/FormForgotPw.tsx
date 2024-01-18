@@ -1,23 +1,14 @@
 import { Formik } from 'formik';
 import { MdOutlineMailLock, MdOutlineArrowBackIos } from "react-icons/md";
-
-import { ForgotPasswordValidation } from '../FormValidation';
-import { back } from '../../../redux/formSlice';
+import { back } from 'src/redux/formSlice';
+import { forgotPasswordValidation } from '../FormValidation';
 import FormInput from "./FormInput";
 
-interface FormValues {
-    email: string;
-};
-
-type Props = {
-    dispatch?: any;
-}
+interface FormValues { email: string };
+type Props = { dispatch?: any };
 
 function FormForgotPw({ dispatch }: Props): JSX.Element {
-    const initialValues: FormValues = {
-        email: "",
-    };
-
+    const initialValues: FormValues = { email: "" };
     return (
         <div className="inline-block w-[500px] px-[45px] py-[40px]">
             {/* FORM FORGOT PASSWORD HEADING */}
@@ -32,21 +23,21 @@ function FormForgotPw({ dispatch }: Props): JSX.Element {
             {/* FORM FORGOT PASSWORD CONTENT*/}
             <Formik<FormValues>
                 initialValues={initialValues}
-                validationSchema={ForgotPasswordValidation}
+                validationSchema={forgotPasswordValidation}
                 onSubmit={(values, actions) => {
                     console.log({ values, actions });
                 }}
             >
-                {({ values, errors, handleChange, handleSubmit }) => (
+                {({ values, errors, touched, handleChange, handleSubmit }) => (
                     <form onSubmit={handleSubmit}>
                         <FormInput
                             type="email"
-                            placehoder="E-mail"
                             name="email"
+                            placeholder="E-mail"
                             value={values.email}
                             onChange={handleChange}
                             message={errors.email}
-                            error={errors.email}
+                            touched={touched.email}
                         >
                             <MdOutlineMailLock className="text-2xl text-tx-3" />
                         </FormInput>

@@ -1,10 +1,10 @@
-import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import Container from "../../components/Container/Container";
-import useQuery from "../../hooks/useQuery";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import Container from "../../components/container/Container";
+import { useQuery } from "../../hooks";
 
 function Search(): JSX.Element {
-    let query = useQuery();
-    let result = query.get("q");
+    const query = useQuery();
+    const result = query.get("q");
     // Call api to get search results
     return ( 
         <Container>

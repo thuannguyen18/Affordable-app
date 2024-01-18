@@ -5,14 +5,14 @@ export interface FormState {
     isOpen: boolean;
     isSignIn: boolean;
     isSignUp: boolean;
-    forgotPassword: boolean;
+    isForgotPassword: boolean;
 };
 
 const initialState: FormState = {
     isOpen: false,
     isSignIn: true,
     isSignUp: false,
-    forgotPassword: false,
+    isForgotPassword: false,
 };
 
 export const formSlice = createSlice({
@@ -25,16 +25,19 @@ export const formSlice = createSlice({
                 state.isSignUp = true;
             }
             if (action.payload === "Forgot") {
-                state.forgotPassword = true;
+                state.isForgotPassword = true;
             }
         },
         back: (state) => {
             state.isSignIn = true;
             state.isSignUp = false;
-            state.forgotPassword = false;
+            state.isForgotPassword = false;
         },
         toggle: (state) => {
             state.isOpen = !state.isOpen;
+            state.isSignIn = true;
+            state.isSignUp = false;
+            state.isForgotPassword = false;
         }
     }
 });

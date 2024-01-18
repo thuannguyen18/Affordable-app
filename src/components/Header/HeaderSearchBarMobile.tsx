@@ -1,42 +1,80 @@
 import { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { useDebounce } from "src/hooks";
 import HeaderSearchAutoComplete from "./HeaderSearchAutoComplete";
 
-function HeaderSearchBarMobile(): JSX.Element {
-    const [searchValue, setSearchValue] = useState<string>("");
-    const [searchResults, setSearchResults] = useState<string[]>([]);
-    const [visible, setVisible] = useState<boolean>(false);
+type Props = { setIsSearchBarOpen: React.Dispatch<React.SetStateAction<boolean>> };
 
-    const isHidden: boolean = searchResults.length < 1;
+function HeaderSearchBarMobile({ setIsSearchBarOpen }: Props): JSX.Element {
+    // Local states
+    const [value, setValue] = useState<string>("");
+    const [results, setResults] = useState<string[]>([]);
+    const [isHidden, setIsHidden] = useState<boolean>(true);
+    const [isSelect, setIsSelect] = useState<boolean>(false);
+    // Using hook
+    const navigate = useNavigate();
+    const debounce = useDebounce(value.trim(), 300);
+
+    async function fetchData(value: string): Promise<any> {
+        const response = await fetch(`https://api.github.com/search/users?q=${value}`);
+        const data = await response.json();
+        return data;
+    }
+
+    function handleSubmit(e: any): void {
+        e.preventDefault();
+        if (value) {
+            navigate(`/search?q=${value}`);
+            setIsSearchBarOpen(false);
+        }
+    }
+
+    function handleFocus(): void {
+        if (value.trim()) {
+            setIsHidden(false);
+            setIsSelect(false);
+        } else {
+            setIsHidden(true);
+        }
+    }
 
     useEffect(() => {
-        if (searchValue) {
-            setTimeout(() => {
-                setSearchResults(["item1", "item2", "item3"]);
-            }, 500);
+        if (debounce && !isSelect) {
+            fetchData(debounce).then(results => setResults(results.items));
+            setIsHidden(false);
         } else {
-            setTimeout(() => {
-                setSearchResults([]);
-            }, 500);
+            setResults([]);
         }
-    }, [searchValue, visible]);
+    }, [debounce, isSelect]);
 
     return (
-        <div className="relative flex flex-1 items-center border border-tx-3 rounded-lg p-1">
-            <input 
-                value={searchValue}
-                type="search" 
-                placeholder="Search" 
-                className="flex-1 outline-none px-2 text-sm" 
-                onChange={(e) => setSearchValue(e.target.value)}
-                onBlur={() => setSearchResults([])}
-                onFocus={() => setVisible(!visible)}
+        <form
+            onSubmit={handleSubmit}
+            className="relative flex flex-1 items-center border border-tx-3 rounded-lg p-1"
+        >
+            <input
+                value={value}
+                type="search"
+                placeholder="Search"
+                className="flex-1 outline-none px-2 text-sm"
+                onChange={(e) => setValue(e.target.value)}
+                onFocus={handleFocus}
             />
-            <span className="px-3 py-2 bg-primary rounded-lg">
+            <button type="submit" className="px-3 py-2 bg-primary rounded-lg">
                 <AiOutlineSearch className="text-white" />
-            </span>
-            <HeaderSearchAutoComplete isHidden={isHidden} searchResults={searchResults} />
-        </div>
+            </button>
+
+            {/* HEADER SEARCH AUTOCOMPLETE */}
+            <HeaderSearchAutoComplete
+                isHidden={isHidden}
+                setIsHidden={setIsHidden}
+                setIsSelect={setIsSelect}
+                setSearchValue={setValue}
+                setIsSearchBarOpen={setIsSearchBarOpen}
+                searchResults={results}
+            />
+        </form>
     );
 }
 

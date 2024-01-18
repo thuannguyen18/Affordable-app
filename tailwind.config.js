@@ -3,10 +3,10 @@ export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      sm: '740px',
+      sm: '967px',
       md: '968px',
       lg: '1280px',
-      xl: '1440px',
+      xl: '1428px',
     },
     colors: {
       'primary': '#2874f0',

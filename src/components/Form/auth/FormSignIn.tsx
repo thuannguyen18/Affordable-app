@@ -1,10 +1,10 @@
-import { Formik } from 'formik';
+import { Formik } from "formik";
 import { MdOutlineMailLock } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-
-import { formLoginValidation } from '../FormValidation';
-import { navigate } from "../../../redux/formSlice";
-import iconGoogle from "../../../assets/images/google-icon.png";
+import { navigate } from "src/redux/formSlice";
+import { useLoginMutation } from "src/services/form.service";
+import iconGoogle from "src/assets/images/google-icon.png";
+import { formLoginValidation } from "../FormValidation";
 import FormInput from "./FormInput";
 import FormPolicy from "./FormPolicy";
 import "./Form_Authen.css";
@@ -14,15 +14,16 @@ interface FormValues {
     password: string;
 };
 
-type Props = {
-    dispatch?: any;
+const initialValues: FormValues = {
+    email: "",
+    password: "",
 }
 
+type Props = { dispatch?: any }
+
 function FormSignIn({ dispatch }: Props) {
-    const initialValues: FormValues = {
-        email: "",
-        password: "",
-    }
+    // Using RTK Query
+    const [login, loginResults] = useLoginMutation();
 
     return (
         <div className="inline-block w-[500px] px-[45px] pt-[40px] pb-[24px]">
@@ -38,29 +39,29 @@ function FormSignIn({ dispatch }: Props) {
                 validationSchema={formLoginValidation}
                 onSubmit={(values, actions) => {
                     console.log({ values, actions });
+                    login(values);
                 }}
             >
-                {({ values, errors, handleChange, handleSubmit }) => (
+                {({ values, errors, touched, handleChange, handleSubmit }) => (
                     <form onSubmit={handleSubmit}>
                         <FormInput
-                            type="email"
-                            placehoder="E-mail"
                             name="email"
+                            placeholder="E-mail"
                             value={values.email}
                             onChange={handleChange}
                             message={errors.email}
-                            error={errors.email}
+                            touched={touched.email}
                         >
                             <MdOutlineMailLock className="text-2xl text-tx-3" />
                         </FormInput>
                         <FormInput
                             type="password"
-                            placehoder="Password"
                             name="password"
+                            placeholder="Password"
                             value={values.password}
                             onChange={handleChange}
                             message={errors.password}
-                            error={errors.password}
+                            touched={touched.password}
                         >
                             <RiLockPasswordLine className="text-2xl text-tx-3" />
                         </FormInput>

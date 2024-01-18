@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { PiHouse } from "react-icons/pi";
-import HeaderQuickLinks from "./HeaderQuickLinks";
+import Categories from "../category/Categories";
 
 type Props = {
     isOpen: boolean;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function HeaderLeftSideMenu({ isOpen, setIsOpen }: Props): JSX.Element {
@@ -14,8 +14,8 @@ function HeaderLeftSideMenu({ isOpen, setIsOpen }: Props): JSX.Element {
     }
 
     return (
-        <div className="left-side-modal bg-modal fixed inset-0 z-10 md:hidden">
-            <div className="left-side-menu">
+        <div className="left-side-modal bg-modal fixed inset-0 z-50 md:hidden">
+            <div className="left-side-menu overflow-y-scroll">
                 {/* BROWSE */}
                 <div className="pt-6 px-4 pb-4 bg-primary flex items-center justify-between">
                     <span>
@@ -36,10 +36,7 @@ function HeaderLeftSideMenu({ isOpen, setIsOpen }: Props): JSX.Element {
                 </Link>
 
                 {/* CATEGORY PRODUCTS */}
-                <div className="bg-white mt-2 py-4 h-full">
-                    <h4 className="p-3.5 font-semibold">Category Products</h4>
-                    <HeaderQuickLinks />
-                </div>
+                <Categories />
             </div>
         </div>
     );

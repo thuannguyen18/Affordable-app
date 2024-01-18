@@ -1,0 +1,28 @@
+.category-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.category-img {
+    width: 30px;
+}
+
+@media only screen and (max-width: 967px) {
+    .category-sidebar {
+        width: 100%;
+        padding-top: 16px;
+        padding-bottom: 0;
+        overflow-y: hidden;
+    }
+
+    .category-list {
+        padding: 16px 0;
+    }
+
+    .category-list-heading {
+        font-size: 16px;
+    }
+
+    .category-img {
+        width: 36px;
+    }
+}

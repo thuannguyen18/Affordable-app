@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import CartEmpty from "../../components/Cart/CartEmpty";
+import CartEmpty from "../../components/cart/CartEmpty";
 
 function Checkout() {
     useEffect((): any => {

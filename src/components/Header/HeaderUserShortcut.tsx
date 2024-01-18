@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaRegUserCircle, FaRegUser, FaRegQuestionCircle } from "react-icons/fa";
 import { FiShoppingCart, FiBell, FiLogOut, FiShoppingBag } from "react-icons/fi";
-import { PiHouse, PiHouseBold } from "react-icons/pi";
-import { Link, To } from "react-router-dom";
+import { PiHouse } from "react-icons/pi";
 import { useDispatch } from "react-redux";
-import { toggle } from "../../redux/formSlice";
-import HeaderAuthModal from "./HeaderAuthPopup";
-import HeaderRightSideMenu from "./HeaderRightSideMenu";
+import { toggle } from "src/redux/formSlice";
+import HeaderAuthPopup from "src/components/header/HeaderAuthPopup";
+import HeaderRightSideMenu from "src/components/header/HeaderRightSideMenu";
 
 const USER_DROPDOWN_MENU_ITEMS = [
     {
@@ -63,7 +63,7 @@ function HeaderUserShortcut(): JSX.Element {
                     </div>
                 </button>
                 <span className="vertical-line-user-shortcut hidden md:block"></span>
-                <HeaderAuthModal />
+                <HeaderAuthPopup />
             </div>
 
             {/* NOTIFICATION BUTTON */}
@@ -73,17 +73,17 @@ function HeaderUserShortcut(): JSX.Element {
             </button>
 
             {/* CART BUTTON */}
-            <Link to="/checkout" className="p-2.5 relative rounded-lg hover:bg-gray-100 transition">
-                <FiShoppingCart className="relative left-[-1px] text-xl text-white" />
+            <Link to="/checkout" className="p-3 relative rounded-lg md:hover:bg-gray-100 transition">
+                <FiShoppingCart className="relative left-[-1px] text-2xl text-white md:text-xl" />
                 <span className="user-cart-notification"></span>
             </Link>
 
             {/* USER BUTTON ON MOBILE */}
             <button
-                className="p-2.5 relative rounded-lg hover:bg-gray-100 transition md:hidden"
+                className="p-3 relative rounded-lg md:hover:bg-gray-100 transition md:hidden"
                 onClick={() => setIsOpen(true)}
             >
-                <FaRegUser className="relative left-[-1px] text-xl text-white"/>
+                <FaRegUser className="text-xl text-white"/>
             </button>
             {false && <HeaderRightSideMenu isOpen={isOpen} setIsOpen={setIsOpen} />}
         </div>

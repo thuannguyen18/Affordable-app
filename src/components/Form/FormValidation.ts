@@ -12,7 +12,7 @@ export const formLoginValidation = yup.object().shape({
     password: yup.string().trim().required("Please enter your password"),
 });
 
-export const ForgotPasswordValidation = yup.object().shape({
+export const forgotPasswordValidation = yup.object().shape({
     email: yup.string().required("Please enter your email").matches(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Wrong or Invalid email address. Please correct and try again."),
 });
 

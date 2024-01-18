@@ -18,16 +18,18 @@ const headerLinks: HeaderQuickLink[] = [
 
 function HeaderQuickLinks(): JSX.Element {
     return (
-        <div>
-            {headerLinks.map((link, index) => (
-                <Link
-                    key={index}
-                    to={link.to}
-                    className={`block p-3.5 md:text-gray md:inline-block md:border-none md:mr-6 md:mb-0 md:p-0 md:text-sm hover:text-primary`}
-                >
-                    {link.content}
-                </Link>
-            ))}
+        <div className="quick-link bg-primary md:bg-white">
+            <div className="quick-link-list">
+                {headerLinks.map((link, index) => (
+                    <Link
+                        className="quick-link-item pt-1 text-white hover:text-tx-3 md:text-gray md:inline-block md:border-none md:mr-6 md:mb-0 md:p-0 md:text-sm md:hover:text-primary md:hover:bg-white"
+                        key={index}
+                        to={link.to}
+                    >
+                        {link.content}
+                    </Link>
+                ))}
+            </div>
         </div>
     );
 }

@@ -1,19 +1,17 @@
 import { MdClose } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
-import { toggle } from "../../redux/formSlice";
-import type { RootState } from "../../redux/store";
-import istockphoto from "../../assets/images/istockphoto.png";
-import FormAuthen from "../Form/Form_Authen/FormAuthen";
+import { toggle } from "src/redux/formSlice";
+import type { RootState } from "src/redux/store";
+import istockphoto from "src/assets/images/istockphoto.png";
+import FormAuthen from "src/components/form/auth";
 import "./Header.css";
 
 function HeaderAuthPopup(): JSX.Element {
+    // Using redux
     const { isOpen } = useSelector((state: RootState) => state.authentication);
     const dispatch = useDispatch();
-
-    if (!isOpen) {
-        return <span></span>;
-    }
-
+    // Check is form openning
+    if (!isOpen) return <span></span>;
     return (
         <div className="header-auth-modal bg-modal fixed inset-0 z-20">
             <div className="modal-content">

@@ -1,20 +1,23 @@
-import React from "react";
+import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import type { RootState } from "../../../redux/store";
+import type { RootState } from "src/redux/store";
 import FormSignIn from "./FormSignIn";
 import FormSignUp from "./FormSignUp";
 import FormForgotPw from "./FormForgotPw";
+import FormModal from "./FormLoader";
 
 function FormAuthen(): JSX.Element {
-    const { isSignIn, isSignUp, forgotPassword } = useSelector((state: RootState) => state.authentication);
+    // States from redux
+    const { isSignIn, isSignUp, isForgotPassword } = useSelector((state: RootState) => state.authentication);
     const dispatch = useDispatch();
 
     return (
-        <React.Fragment>
+        <Fragment>
             {isSignUp && <FormSignUp dispatch={dispatch} />}
             {isSignIn && <FormSignIn dispatch={dispatch} />}
-            {forgotPassword && <FormForgotPw dispatch={dispatch} />}
-        </React.Fragment>
+            {isForgotPassword && <FormForgotPw dispatch={dispatch} />}
+            {false && <FormModal />}
+        </Fragment>
     );
 }
 

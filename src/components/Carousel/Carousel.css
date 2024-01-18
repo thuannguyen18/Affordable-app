@@ -1,15 +1,17 @@
-.slick-dots {
-    position: absolute;
-    top: 88%;
+@media only screen and (max-width: 548px) {
+    .carousel-img {
+        height: 180px;
+    }
 }
 
-.slick-arrow.slick-next {
-    top: "50%";
-    left: "3%";
-    z-index: 10;
+@media only screen and (min-width: 549px) and (max-width: 967px) {
+    .carousel-img {
+        height: 280px;
+    }
 }
 
-.slick-arrow.slick-next::before,
-.slick-arrow.slick-prev::before {
-    font-size: 25px;
+@media only screen and (min-width: 968px){
+    .carousel-img {
+        height: 420px;
+    }
 }
