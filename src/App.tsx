@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { publicRoutes } from "./routes";
-import Layout from "./layout/Layout";
+import MainLayout from "./layout/MainLayout";
 import "./App.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
         <Router>
             <div className="bg-background">
                 <Routes>
-                    <Route path="/" element={<Layout />}>
+                    <Route path="/" element={<MainLayout />}>
                         {publicRoutes.map((route, index) => {
                             const Page = route.component;
                             return <Route key={index} path={route.path} element={<Page />} />

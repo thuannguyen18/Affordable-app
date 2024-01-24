@@ -7,9 +7,8 @@ function Search(): JSX.Element {
     const result = query.get("q");
     // Call api to get search results
     return ( 
-        <Container>
-            <Breadcrumbs next={`Results for: ${result}`} />
-            
+        <Container properties={["px-3"]}>
+            <Breadcrumbs title={`Results for: ${result}`} />
         </Container>
     );
 }

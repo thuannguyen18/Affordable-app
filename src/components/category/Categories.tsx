@@ -112,8 +112,7 @@ const CATEGORIES = [
 
 function Categories(): JSX.Element {
     return (
-        <div className="category-sidebar w-[230px] max-h-screen sticky top-4 overflow-y-scroll overflow-hidden pb-[117px] md:block">
-            {/* CATEGORIES */}
+        <div className="category-sidebar hidden max-h-screen sticky top-4 overflow-y-scroll overflow-hidden pb-[117px] lg:block lg:col-span-2">
             <div className="category-list relative flex flex-col mb-4 py-3.5 px-2 rounded-lg bg-white">
                 <h3 className="category-list-heading mb-2 pl-4 text-sm font-semibold">Categories</h3>
                 {CATEGORIES.map(category => (
@@ -127,8 +126,6 @@ function Categories(): JSX.Element {
                     </Link>
                 ))}
             </div>
-
-            {/* CREATE YOUR OWN SHOP */}
             <div className="py-2.5 px-2 rounded-lg bg-white">
                 <Link to="/" className="flex items-center rounded-lg px-4 py-2 hover:bg-gray-blur transition">
                     <img src={shop} alt="category" style={{ width: "36px" }} />

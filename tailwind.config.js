@@ -9,7 +9,7 @@ export default {
       xl: '1428px',
     },
     colors: {
-      'primary': '#2874f0',
+      'primary': '#0a68ff',
       'modal': '#00000087',
       'title': '#27272a',
       'tx-1': '#787878',

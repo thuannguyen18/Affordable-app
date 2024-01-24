@@ -7,7 +7,7 @@ type HeaderQuickLink = {
 }
 
 const headerLinks: HeaderQuickLink[] = [
-    { to: "/", content: "Babies & Kids", isActive: false },
+    { to: "/babies-kids", content: "Babies & Kids", isActive: false },
     { to: "/", content: "Electronics", isActive: false },
     { to: "/", content: "Fashions", isActive: false },
     { to: "/", content: "Home & Garden", isActive: false },

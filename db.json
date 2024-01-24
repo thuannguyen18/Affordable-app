@@ -10,25 +10,25 @@
       "id": 2,
       "name": "Dove Body Wash",
       "price": "18.72",
-      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+      "image": "http://localhost:5173/assets/images/dove-body-wash.webp"
     },
     {
       "id": 3,
-      "name": "laptop dell",
-      "price": "18.72",
-      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+      "name": "Beats Solo3 Wireless On-Ear Headphones",
+      "price": "44.99",
+      "image": "http://localhost:5173/assets/images/head-phone.jpg"
     },
     {
       "id": 4,
-      "name": "TV Samsung",
-      "price": "18.72",
-      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+      "name": "Blink Video Doorbell (Black) + Mini Camera",
+      "price": "91.88",
+      "image": "http://localhost:5173/assets/images/doorbell.jpg"
     },
     {
       "id": 5,
-      "name": "iphone 13",
-      "price": "18.72",
-      "image": "http://localhost:5173/assets/images/ms-laptop.jpg"
+      "name": "Google Pixel Watch - Android Smartwatch with Fitbit Activity Tracking",
+      "price": "199.99",
+      "image": "http://localhost:5173/assets/images/watch.jpg"
     },
     {
       "id": 6,

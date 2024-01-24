@@ -1,23 +1,66 @@
 .collection-body {
     position: relative;
-    width: 95%;
 }
 
-.product-list {
+.product-list,
+.product-list-flash-deals {
+    --gap-value: 16px;
+    --products-on-views: 6;
     display: grid;
-    gap: 16px;
-    overflow-x: auto;
-    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gap-value);
+    overflow: auto;
+    grid-template-columns: repeat(var(--products-quantity), calc((1114px / var(--products-on-views)) - var(--gap-value)));
 }
 
-.product-list::-webkit-scrollbar {
+.product-list-flash-deals {
+    --products-on-views: 7;
+}
+
+.product-list::-webkit-scrollbar,
+.product-list-flash-deals::-webkit-scrollbar {
     display: none;
 }
 
-.product-item {
+.product-item-flash-deals {
     width: 142px;
-    height: 202px;
-    object-fit: cover;
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid #ebebf0;
+    background: #fff;
+}
+
+.product-item-img {
+    width: 100%;
+    height: 174px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.product-item-container {
+    display: flex;
+    flex-direction: column;
+    height: 52px;
+    gap: 4px;
+    margin-top: 8px;
+    padding: 0 8px;
+}
+
+.product-item-title-flash-deals,
+.product-item-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.product-item-title-flash-deals {
+    -webkit-line-clamp: 1;
 }
 
 .slide-button {
@@ -35,6 +78,7 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px;
     border-radius: 12px;
     transform: translateY(-50%);
+    z-index: 10;
 }
 
 .slide-button#prev {
@@ -44,5 +88,5 @@
 
 .slide-button#next {
     top: 50%;
-    right: -53px;
+    right: 0;
 }
